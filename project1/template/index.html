@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .section1 {
+            background: rgb(255, 244, 0);
+            background: linear-gradient(150deg, rgba(255, 244, 0, 1) 0%, rgba(216, 219, 0, 1) 0%, rgba(6, 86, 2, 1) 38%, rgba(7, 87, 2, 1) 45%, rgba(24, 127, 11, 1) 56%, rgba(25, 129, 11, 1) 69%, rgba(0, 82, 2, 1) 75%, rgba(229, 227, 0, 1) 97%);
+        }
+        .section2{
+            height: 600px;
+            margin-top: 200px;
+        }
+        img{
+            height:250px;
+            padding: 10px;
+        }
+        .section1{
+            width: 100%;
+        }
+        .section2{
+            margin: 0;
+            padding: 0;
+            height: 400px;
+        }
+        .section3{
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .section4{
+            background-color: black;
+            height: 200px;
+            width: 100%;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            color: aliceblue;
+        }
+    h1{
+        color: aliceblue;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- section for navbar -->
+    <section class="section1">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="color:black;font-size:20px;">EXPLOURE <sub
+                        style="color:black;font-size:20px;">MORE :)</sub></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" style="font-size: 20px;">Home</a>
+                        </li>
+                        {% for i in x %}
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: black; font-size:20px" href="#">{{i.C_name}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- section for carousel -->
+    <section class="section2">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                {% for i in z %}
+              <div class="carousel-item active">
+                <img src="{{i.I_images1.url}}" class="d-block w-100" alt="..." style="width:100%;height:100%;">
+              </div>
+              <div class="carousel-item">
+                <img src="{{i.I_images3.url}} " class="d-block w-100" alt="..." style="width:100%;height:100%;">
+              </div>
+              <div class="carousel-item">
+                <img src="{{i.I_images2.url}}" class="d-block w-100" alt="..." style="width:100%;height:100%;">
+              </div>
+              {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+    <!-- section for cards -->
+    <section class="section3">
+        <div class="row">
+            {% for i in y %}
+            <div class="col-md-3"><div class="card" style="width: 18rem;">
+                <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.D_name}}</h5>
+                  <p class="card-text">{{i.D_discription}}</p>
+                  <a href="#" class="btn btn-primary">{{i.D_cost}}</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- section for footer -->
+    <section class="section4">  
+    <div class="row">
+        <div class="col-md-4">
+<ul>
+    <h1>get to know about us</h1>
+    <li>About us</li>
+    <li>Experiences</li>
+</ul>
+        </div>
+        <div class="col-md-4">
+<ul>
+    <h1>Contact us</h1>
+    <li>
+<a href="https://www.instagram.com/">INSTAGRAM</a>
+    </li>
+    <li>
+        <a href="https://www.facebook.com/">FACEBOOK</a>
+    </li>
+    <li>
+        <a href="https://web.whatsapp.com/">whatsapp</a>
+    </li>
+</ul>
+        </div>  
+        <div class="col-md-4">
+             <h1>location</h1>
+             <img src="" alt="">
+        </div>
+    </div>
+</section>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
